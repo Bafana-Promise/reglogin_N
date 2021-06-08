@@ -1,0 +1,75 @@
+<div fxLayout="row wrap" style="background: lightgrey;" fxLayoutAlign="center center" [fxShow]="true" [fxHide]="false" fxFill>
+  <div fxLayout="column wrap" fxFlex="40" fxLayoutAlign="start stretch" [fxHide]="false" *ngIf="showLogin">
+    <mat-card>
+      <mat-card-title align="center">Register</mat-card-title>
+
+      <mat-card-subtitle align="center">Please fill in your details</mat-card-subtitle>
+
+      <mat-card-content>
+        <form #regLoginForm="ngForm">
+          <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;never&apos;" [hideRequiredMarker]="false">
+              <input matInput [(ngModel)]="regLoginForm.firstName" name="firstName" placeholder="Enter First Name" [required]="false">
+              <mat-label>First Name</mat-label>
+            </mat-form-field>
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;never&apos;" [hideRequiredMarker]="false">
+              <input matInput [(ngModel)]="regLoginForm.lastName" name="lastName" placeholder="Enter Last Name" [required]="false">
+              <mat-label>Last Name</mat-label>
+            </mat-form-field>
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;never&apos;" [hideRequiredMarker]="false">
+              <input matInput [(ngModel)]="regLoginForm.email" name="email" placeholder="Enter Email" [required]="false">
+              <mat-label>Email</mat-label>
+            </mat-form-field>
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;never&apos;" [hideRequiredMarker]="false">
+              <input matInput [(ngModel)]="regLoginForm.password" name="password" placeholder="Enter Password" [required]="false">
+              <mat-label>Password</mat-label>
+            </mat-form-field>
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;never&apos;" [hideRequiredMarker]="false">
+              <input matInput [(ngModel)]="regLoginForm.confirmPassword" name="confirmPassword" placeholder="Confirm Password" [required]="false">
+              <mat-label>Confirm Password</mat-label>
+            </mat-form-field><button mat-raised-button color="primary" (click)="submit(regLoginForm)">Register</button>
+          </div>
+        </form>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+          <p>
+            Already a User? <span (click)="showLogin = !showLogin" class="cursor">Login</span>
+          </p>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  <div fxLayout="column wrap" fxFlex="40" fxLayoutAlign="start stretch" [fxHide]="false" *ngIf="!showLogin">
+    <mat-card>
+      <mat-card-title align="center">Login</mat-card-title>
+
+      <mat-card-subtitle align="center">Please fill in your login details</mat-card-subtitle>
+
+      <mat-card-content>
+        <form #regLoginForm="ngForm">
+          <div fxLayout="column wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;never&apos;" [hideRequiredMarker]="false">
+              <input matInput [(ngModel)]="regLoginForm.email" name="email" placeholder="Enter Email" [required]="false">
+              <mat-label>Email</mat-label>
+            </mat-form-field>
+            <mat-form-field [appearance]="&apos;outline&apos;" [floatLabel]="&apos;never&apos;" [hideRequiredMarker]="false">
+              <input matInput [(ngModel)]="regLoginForm.password" name="password" placeholder="Enter Password" [required]="false">
+              <mat-label>Password</mat-label>
+            </mat-form-field><button mat-raised-button color="primary" (click)="submit(regLoginForm)">Login</button>
+          </div>
+        </form>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <div fxLayout="row wrap" fxLayoutAlign="start stretch" [fxShow]="true" [fxHide]="false">
+          <p>
+
+            Not a User? <span (click)="showLogin = !showLogin" class="cursor">Register</span>
+          </p>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
